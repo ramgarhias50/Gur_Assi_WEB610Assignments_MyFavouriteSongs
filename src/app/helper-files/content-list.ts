@@ -28,6 +28,7 @@ export class ContentList {
           <h2>${item.title}</h2>
           <img src="${item.imgURL}" alt="This is an image" />
           <p>${item.description}</p>
+          <p>${item.creator}</p>
         </div>
       `;
     }

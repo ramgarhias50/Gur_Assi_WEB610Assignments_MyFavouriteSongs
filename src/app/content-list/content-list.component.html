@@ -1,0 +1,4 @@
+<div *ngFor="let contents of punjabiSongs;first as
+isFirst" [class.first-child]="isFirst">
+    <app-content-card [content]="contents" ></app-content-card>
+</div>

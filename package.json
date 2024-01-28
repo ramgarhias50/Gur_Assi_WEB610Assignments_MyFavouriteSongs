@@ -10,6 +10,7 @@
     "generatecomponent":"npm run-script generatecomponent",
     "generatepipe":"npm run-script generatepipe",
     "generatedirective":"npm run-script generatedirective"
+   
   },
   "private": true,
   "dependencies": {

@@ -2,22 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { CommonModule } from '@angular/common';
 import { ContentCardComponent } from "../content-card/content-card.component";
+import { SortTypePipe } from "../sort-type.pipe";
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-content-list',
     standalone: true,
     templateUrl: './content-list.component.html',
     styleUrl: './content-list.component.scss',
-    imports: [CommonModule, ContentCardComponent]
+    imports: [CommonModule, ContentCardComponent, SortTypePipe,FormsModule]
 })
 export class ContentListComponent implements OnInit{
+  
   punjabiSongs:Content[];
 isFirst: any;
+name: any;
+filteredList:Content[]=[]
+Resultstring:string='';
+setColor:string='';
 constructor(){
 this.punjabiSongs=[];
 
 }
 ngOnInit(): void {
+  this.filteredList=this.punjabiSongs;
+  
   this.punjabiSongs = [
     {
       id: 0,
@@ -60,7 +69,7 @@ ngOnInit(): void {
       description: "Energetic Punjabi track with powerful beats.",
       creator: "Mankirt Aulakh",
       imgURL: "https://c.saavncdn.com/563/Jatt-Da-Blood-Punjabi-2016-500x500.jpg",
-      type: "Music",
+      type: "Attitude",
      
     },
     {
@@ -69,9 +78,39 @@ ngOnInit(): void {
       description: "Punjabi love song with soulful lyrics.",
       creator: "Lakhwinder Wadali",
       imgURL: "https://i.ytimg.com/vi/RYmNGn_yeho/sddefault.jpg?v=63688854",
-      
       tags: ["Punjabi", "Music", "Love"]
+    },{
+      id: 6,
+      title: "Na Ja",
+      description: "Popular Punjabi track with a catchy rhythm.",
+      creator: "Pav Dharia",
+      imgURL: "https://i1.sndcdn.com/artworks-000208846430-lscz5x-t500x500.jpg",
+    
+      tags: ["Punjabi", "Music", "Hit"]
+    },{
+      id:7,
+      title:"So High",
+      description:"The song to show attitude",
+      imgURL:"https://i.scdn.co/image/ab67616d0000b27321f13eb2d62c7d93edee98b3",
+      type:"Attitude",
+      tags:["Punjabi","Hit"],
+      creator:"Sidhu Moosewala"
     }
+    
   ];
+};
+
+
+filterResult(text: string): void {
+  this.filteredList = this.punjabiSongs.filter(song => song.title.toLowerCase().includes(text.toLowerCase()));
+  
+  if (this.filteredList.length > 0) {
+    this.Resultstring = 'Content Found';
+    this.setColor = 'green';
+  } else {
+    this.Resultstring = 'No Content Found';
+    this.setColor = 'red';
+  }
 }
+
 }

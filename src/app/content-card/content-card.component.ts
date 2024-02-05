@@ -9,6 +9,8 @@ import { Component, Input } from '@angular/core';
 })
 export class ContentCardComponent {
 @Input() content:any;  
-
+handleclick(id:number,title:string):any{
+return console.log(`The id of card is ${id} and title if ${title}`)
+}
 
 }

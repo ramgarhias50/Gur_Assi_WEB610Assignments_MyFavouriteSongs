@@ -1,4 +1,19 @@
-<div *ngFor="let contents of punjabiSongs;first as
-isFirst" [class.first-child]="isFirst">
-    <app-content-card [content]="contents" ></app-content-card>
+
+<input [(ngModel)]="name">
+<button (click)="filterResult(name)">Search</button>
+<ul>
+<span [style.backgroundColor]="setColor">
+    {{Resultstring}}
+</span>
+</ul>
+<div *ngFor="let contents of punjabiSongs|sortType:'Music'; let i = index;
+first as
+isFirst" [class.first-child]="isFirst" [class.music]="punjabiSongs|sortType">
+    <app-content-card [content]="contents" [id]="i"></app-content-card>
+</div>
+
+<div *ngFor="let contents of punjabiSongs|sortType:'Attitude'; let i = index;
+first as
+isFirst" [class.first-child]="isFirst" [class.Attitude]="punjabiSongs|sortType">
+    <app-content-card [content]="contents" [id]="i"></app-content-card>
 </div>

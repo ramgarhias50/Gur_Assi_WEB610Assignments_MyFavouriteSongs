@@ -1,0 +1,20 @@
+
+<input [(ngModel)]="name">
+<button (click)="filterResult(name)">Search</button>
+<ul>
+<span [style.backgroundColor]="setColor">
+    {{Resultstring}}
+</span>
+</ul>
+<div appHoverAffect [hovereffect]="true" [boldeffect]="true" >Music</div>
+<div *ngFor="let contents of punjabiSongs|sortType:'Music'; let i = index;
+first as
+isFirst" [class.first-child]="isFirst" [class.music]="punjabiSongs|sortType" appHoverAffect [hovereffect]="true">
+    <app-content-card [content]="contents" [id]="i"></app-content-card>
+</div>
+<div appHoverAffect [hovereffect]="true" [boldeffect]="true" >Attitude</div>
+<div *ngFor="let contents of punjabiSongs|sortType:'Attitude'; let i = index;
+first as
+isFirst" [class.first-child]="isFirst" [class.Attitude]="punjabiSongs|sortType">
+    <app-content-card [content]="contents" [id]="i" appHoverAffect [hovereffect]="true"></app-content-card>
+</div>

@@ -1,1 +1,11 @@
-<div [innerHTML]="contentList.htmlOutput()"></div>
+<div class="content-card" (click)="handleclick(content.id,content.title)" >
+    <h3>{{content.title}}</h3>
+    <p>{{ content.description }}</p>
+    <p>Creator: {{ content.creator }}</p>
+    <p *ngIf="content.type">Type: {{ content.type }}</p>
+    <p *ngIf="content.tags">Tags: {{ content.tags.join(', ') }}</p>
+    <div [ngSwitch]='content.imgURL'>
+        <img *ngSwitchCase='undefined' src="../../assets/Images/Image_not_available.png">
+        <img *ngSwitchDefault  [src]="content.imgURL">
+    </div>
+</div>

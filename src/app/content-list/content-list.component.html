@@ -1,4 +1,6 @@
-
+<app-create-content (addContent)="addDateToList($event)"></app-create-content>
+<br/>
+<br>
 <input [(ngModel)]="name">
 <button (click)="filterResult(name)">Search</button>
 <ul>

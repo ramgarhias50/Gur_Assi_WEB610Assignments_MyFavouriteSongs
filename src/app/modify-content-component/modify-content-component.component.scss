@@ -1,0 +1,44 @@
+// Define variables for commonly used colors
+$primary-color: #007bff;
+$light-gray: #f8f9fa;
+
+// Basic styling for the form container
+div {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $light-gray;
+  border-radius: 5px;
+}
+
+// Style form labels
+label {
+  font-weight: bold;
+}
+
+// Style form input fields
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+// Style submit button
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+// Style submit button on hover
+input[type="submit"]:hover {
+  background-color: darken($primary-color, 10%);
+}

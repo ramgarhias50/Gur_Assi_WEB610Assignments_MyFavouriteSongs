@@ -1,27 +1,26 @@
-
 <input [(ngModel)]="name">
 <button (click)="filterResult(name)">Search</button>
 <ul>
-<span [style.backgroundColor]="setColor">
-    {{Resultstring}}
-</span>
+    <span [style.backgroundColor]="setColor">
+        {{Resultstring}}
+    </span>
 </ul>
 
 <app-messages></app-messages>
 
-<input [(ngModel)]    ="id" type="number">
-<button (click)="findData(id)">Serach by Id</button>
-<app-content-card [content]="content" class="firstCard"></app-content-card>
-
-<div appHoverAffect [hovereffect]="true" [boldeffect]="true" >Music</div>
-<div *ngFor="let contents of filteredList|sortType:'Music'; let i = index;
-first as
-isFirst" [class.first-child]="isFirst" [class.music]="filteredList|sortType" appHoverAffect [hovereffect]="true">
-    <app-content-card [content]="contents" [id]="i"></app-content-card>
-</div>
-<div appHoverAffect [hovereffect]="true" [boldeffect]="true" >Attitude</div>
-<div *ngFor="let contents of filteredList|sortType:'Attitude'; let i = index;
-first as
-isFirst" [class.first-child]="isFirst" [class.Attitude]="filteredList|sortType">
-    <app-content-card [content]="contents" [id]="i" appHoverAffect [hovereffect]="true"></app-content-card>
+<!-- <input [(ngModel)]="id" type="number">
+<button (click)="findData(id)">Serach by Id</button> -->
+<!-- <app-content-card [content]="content" class="firstCard"></app-content-card> -->
+<div *ngIf="LoadingScreen">{{LoadingScreen}}</div>
+<div *ngIf="filteredList.length > 0">
+    <div appHoverAffect [hovereffect]="true" [boldeffect]="true">Music</div>
+    <div *ngFor="let contents of filteredList|sortType:'Music'; let i = index; first as isFirst"
+        [class.first-child]="isFirst" [class.music]="filteredList|sortType" appHoverAffect [hovereffect]="true">
+        <app-content-card [content]="contents" [id]="i"></app-content-card>
+    </div>
+    <div appHoverAffect [hovereffect]="true" [boldeffect]="true">Attitude</div>
+    <div *ngFor="let contents of filteredList|sortType:'Attitude'; let i = index; first as isFirst"
+        [class.first-child]="isFirst" [class.Attitude]="filteredList|sortType" appHoverAffect [hovereffect]="true">
+        <app-content-card [content]="contents" [id]="i" appHoverAffect [hovereffect]="true"></app-content-card>
+    </div>
 </div>

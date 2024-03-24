@@ -1,0 +1,19 @@
+<h2 style="text-align: center;">Fill the Data to Insert or Update Data</h2>
+<div>
+    <label for="id">ID:</label><br>
+    <input type="number" id="id" name="id" [(ngModel)]="data.id"><br>
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" [(ngModel)]="data.title"><br>
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" [(ngModel)]="data.description"></textarea><br>
+    <label for="creator">Creator:</label><br>
+    <input type="text" id="creator" name="creator" [(ngModel)]="data.creator"><br>
+    <label for="imgURL">Image URL:</label><br>
+    <input type="text" id="imgURL" name="imgURL" [(ngModel)]="data.imgURL"><br>
+    <label for="type">Type:</label><br>
+    <input type="text" id="type" name="type" [(ngModel)]="data.type"><br>
+    <label for="tags">Tags (comma-separated):</label><br>
+    <input type="text" id="tags" name="tags" [(ngModel)]="data.tags"><br>
+    <br>
+    <input type="submit" value="Submit" (click)="Submit()">
+</div>
